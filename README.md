@@ -1,4 +1,4 @@
-# 🚀 AUY1105 - Evaluación Parcial N°3
+# AUY1105 - Evaluación Parcial N°3
 
 ## Gestión Avanzada del Estado en Terraform
 
@@ -18,7 +18,7 @@ El objetivo principal consiste en demostrar el manejo avanzado del archivo de es
 
 ---
 
-# 🏗️ Arquitectura Implementada
+#  Arquitectura Implementada
 
 La infraestructura fue desarrollada utilizando una arquitectura modular compuesta por tres módulos principales.
 
@@ -49,7 +49,7 @@ La infraestructura fue desarrollada utilizando una arquitectura modular compuest
 
 ---
 
-# 🚀 Despliegue Inicial de la Infraestructura
+#  Despliegue Inicial de la Infraestructura
 
 ### Configuración de credenciales AWS
 
@@ -77,9 +77,9 @@ Se extrajeron los IDs de cada recurso desde el estado de Terraform para uso post
 
 ---
 
-# 📦 Recursos Implementados
+#  Recursos Implementados
 
-## 🌐 Red (`module.red`)
+##  Red (`module.red`)
 
 - Amazon VPC
 - Public Subnet
@@ -88,13 +88,13 @@ Se extrajeron los IDs de cada recurso desde el estado de Terraform para uso post
 - Route Table Association
 - Security Group
 
-## 💻 Cómputo (`module.computo`)
+##  Cómputo (`module.computo`)
 
 - Amazon EC2
 - Amazon Linux
 - Tipo **t2.micro**
 
-## 🗄️ Almacenamiento (`module.almacenamiento`)
+##  Almacenamiento (`module.almacenamiento`)
 
 - Amazon S3 Bucket
 - Versionamiento habilitado
@@ -103,7 +103,7 @@ Se extrajeron los IDs de cada recurso desde el estado de Terraform para uso post
 
 ---
 
-# 🎯 Escenarios Evaluados
+#  Escenarios Evaluados
 
 ---
 
@@ -171,7 +171,7 @@ Se aplicaron los cambios finales. El apply completó con nueva EC2 creada y todo
 
 En este escenario se eliminó el Security Group del archivo de estado de Terraform sin eliminarlo físicamente de AWS, utilizando `terraform state rm`.
 
-> ⚠️ Este escenario fue ejecutado en el laboratorio TAITE 09 durante la evaluación presencial.
+>  Este escenario fue ejecutado en el laboratorio TAITE 09 durante la evaluación presencial.
 
 **Comandos ejecutados:**
 ```bash
@@ -194,7 +194,7 @@ terraform plan
 
 ---
 
-# 📂 Evidencias
+#  Evidencias
 
 Las salidas de consola fueron almacenadas utilizando `tee` en:
 
@@ -221,7 +221,7 @@ evidencias/
 
 ---
 
-# 🛠️ Comandos Utilizados
+#  Comandos Utilizados
 
 ```bash
 terraform init
@@ -251,7 +251,7 @@ La infraestructura fue administrada correctamente utilizando Terraform CLI, recu
 
 ---
 
-## 👨‍💻 Autor
+##  Autor
 
 **Carlos Rodrigo Cuevas**\
 Infraestructura como Código II (AUY1105)\
