@@ -29,7 +29,7 @@ de recursos.
 La infraestructura fue desarrollada utilizando una arquitectura modular
 compuesta por tres módulos principales.
 
-``` text
+``
                      AWS CLOUD
                          │
         ┌────────────────┴────────────────┐
@@ -52,7 +52,8 @@ compuesta por tres módulos principales.
              module.computo
                      │
                      └── EC2 t2.micro
- Recursos Implementados
+``
+Recursos Implementados
  Red (module.red)
 Amazon VPC
 
@@ -124,6 +125,8 @@ evidencias/
 Incluyen logs de los tres escenarios y de la recuperación del estado.
 
  Comandos Utilizados
+
+ ``
 terraform init
 terraform plan
 terraform apply
@@ -136,6 +139,7 @@ terraform taint
 terraform untaint
 terraform apply -refresh-only
 terraform apply -replace
+``
 
 ✅ Resultado
 La infraestructura fue administrada correctamente utilizando Terraform
