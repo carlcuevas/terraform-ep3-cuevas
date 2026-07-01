@@ -1,0 +1,14 @@
+VPC:
+    default_network_acl_id               = "acl-0dcb06498d68b718f"
+SUBNET:
+    availability_zone_id                           = "use1-az2"
+IGW:
+    id       = "igw-05cb1ab0d9dd0ae0e"
+RTB:
+    id               = "rtb-0ed29bdc989e0811f"
+SG:
+    id                     = "sg-0e3cc01aad47224cd"
+EC2:
+    host_id                              = [90mnull[0m[0m
+BUCKET:
+    bucket                      = "auy1105-grupo3-proyecto2-datos-carlos"

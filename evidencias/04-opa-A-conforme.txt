@@ -1,0 +1,4 @@
+=== opa eval contra plan conforme ===
+[]
+
+Esperado: [] (ninguna politica violada)

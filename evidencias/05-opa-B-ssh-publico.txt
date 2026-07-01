@@ -1,0 +1,4 @@
+=== opa eval contra SSH abierto a 0.0.0.0/0 ===
+[
+  "Violacion de Seguridad: el Security Group 'aws_security_group.allow_ssh' expone el puerto SSH (22) a 0.0.0.0/0"
+]

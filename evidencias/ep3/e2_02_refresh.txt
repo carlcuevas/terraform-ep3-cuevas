@@ -1,0 +1,22 @@
+[0m[1mmodule.computo.data.aws_ami.this: Reading...[0m[0m
+[0m[1mmodule.almacenamiento.aws_s3_bucket.this: Refreshing state... [id=auy1105-grupo3-proyecto2-datos-carlos][0m
+[0m[1mmodule.red.aws_security_group.this: Refreshing state... [id=sg-0e3cc01aad47224cd][0m
+[0m[1mmodule.red.aws_internet_gateway.this: Refreshing state... [id=igw-05cb1ab0d9dd0ae0e][0m
+[0m[1mmodule.red.aws_subnet.public[0]: Refreshing state... [id=subnet-0edc249a27cea595c][0m
+[0m[1mmodule.red.aws_route_table.public: Refreshing state... [id=rtb-0ed29bdc989e0811f][0m
+[0m[1mmodule.red.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-01e7b0ef1e95b10ac][0m
+[0m[1mmodule.computo.data.aws_ami.this: Read complete after 0s [id=ami-0a02a779008fa3b99][0m
+[0m[1mmodule.computo.aws_instance.this: Refreshing state... [id=i-064912242c88a92c2][0m
+
+Changes to Outputs:
+  [32m+[0m[0m vpc_id            = (known after apply)
+
+You can apply this plan to save these new output values to the Terraform
+state, without changing any real infrastructure.
+[0m[1m
+Would you like to update the Terraform state to reflect these detected changes?[0m
+  Terraform will write these changes to the state without modifying any real infrastructure.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  [1mEnter a value:[0m [0m
+Apply cancelled.

@@ -1,0 +1,294 @@
+[0m[1mmodule.computo.data.aws_ami.this: Reading...[0m[0m
+[0m[1mmodule.almacenamiento.aws_s3_bucket.this: Refreshing state... [id=auy1105-grupo3-proyecto2-datos-carlos][0m
+[0m[1mmodule.red.aws_internet_gateway.this: Refreshing state... [id=igw-05cb1ab0d9dd0ae0e][0m
+[0m[1mmodule.red.aws_subnet.public[0]: Refreshing state... [id=subnet-0edc249a27cea595c][0m
+[0m[1mmodule.red.aws_security_group.this: Refreshing state... [id=sg-0e3cc01aad47224cd][0m
+[0m[1mmodule.red.aws_route_table.public: Refreshing state... [id=rtb-0ed29bdc989e0811f][0m
+[0m[1mmodule.red.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-01e7b0ef1e95b10ac][0m
+[0m[1mmodule.computo.data.aws_ami.this: Read complete after 0s [id=ami-0a02a779008fa3b99][0m
+[0m[1mmodule.computo.aws_instance.this: Refreshing state... [id=i-064912242c88a92c2][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+  [33m~[0m update in-place[0m
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.almacenamiento.aws_s3_bucket_public_access_block.this[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_public_access_block" "this" {
+      [32m+[0m[0m block_public_acls       = true
+      [32m+[0m[0m block_public_policy     = true
+      [32m+[0m[0m bucket                  = "auy1105-grupo3-proyecto2-datos-carlos"
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m ignore_public_acls      = true
+      [32m+[0m[0m region                  = "us-east-1"
+      [32m+[0m[0m restrict_public_buckets = true
+    }
+
+[1m  # module.almacenamiento.aws_s3_bucket_server_side_encryption_configuration.this[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
+      [32m+[0m[0m bucket = "auy1105-grupo3-proyecto2-datos-carlos"
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m region = "us-east-1"
+
+      [32m+[0m[0m rule {
+          [32m+[0m[0m blocked_encryption_types = (known after apply)
+          [32m+[0m[0m bucket_key_enabled       = true
+
+          [32m+[0m[0m apply_server_side_encryption_by_default {
+              [32m+[0m[0m kms_master_key_id = (known after apply)
+              [32m+[0m[0m sse_algorithm     = "AES256"
+            }
+        }
+    }
+
+[1m  # module.almacenamiento.aws_s3_bucket_versioning.this[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_versioning" "this" {
+      [32m+[0m[0m bucket = "auy1105-grupo3-proyecto2-datos-carlos"
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m region = "us-east-1"
+
+      [32m+[0m[0m versioning_configuration {
+          [32m+[0m[0m mfa_delete = (known after apply)
+          [32m+[0m[0m status     = "Enabled"
+        }
+    }
+
+[1m  # module.computo.aws_instance.this[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "aws_instance" "this" {
+      [33m~[0m[0m arn                                  = "arn:aws:ec2:us-east-1:995092812762:instance/i-064912242c88a92c2" -> (known after apply)
+      [33m~[0m[0m associate_public_ip_address          = true -> (known after apply)
+      [33m~[0m[0m availability_zone                    = "us-east-1a" -> (known after apply)
+      [33m~[0m[0m disable_api_stop                     = false -> (known after apply)
+      [33m~[0m[0m disable_api_termination              = false -> (known after apply)
+      [33m~[0m[0m ebs_optimized                        = false -> (known after apply)
+      [32m+[0m[0m enable_primary_ipv6                  = (known after apply)
+      [31m-[0m[0m hibernation                          = false [90m-> null[0m[0m
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [33m~[0m[0m id                                   = "i-064912242c88a92c2" -> (known after apply)
+      [33m~[0m[0m instance_initiated_shutdown_behavior = "stop" -> (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [33m~[0m[0m instance_state                       = "running" -> (known after apply)
+      [33m~[0m[0m ipv6_address_count                   = 0 -> (known after apply)
+      [33m~[0m[0m ipv6_addresses                       = [] -> (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [33m~[0m[0m monitoring                           = false -> (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_group_id                   = (known after apply)
+      [33m~[0m[0m placement_partition_number           = 0 -> (known after apply)
+      [33m~[0m[0m primary_network_interface_id         = "eni-0cf221ee3acc3ca38" -> (known after apply)
+      [33m~[0m[0m private_dns                          = "ip-10-1-1-55.ec2.internal" -> (known after apply)
+      [33m~[0m[0m private_ip                           = "10.1.1.55" -> (known after apply)
+      [33m~[0m[0m public_dns                           = "ec2-100-59-33-153.compute-1.amazonaws.com" -> (known after apply)
+      [33m~[0m[0m public_ip                            = "100.59.33.153" -> (known after apply)
+      [33m~[0m[0m secondary_private_ips                = [] -> (known after apply)
+      [33m~[0m[0m security_groups                      = [] -> (known after apply)
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [33m~[0m[0m subnet_id                            = "subnet-0edc249a27cea595c" -> (known after apply) [31m# forces replacement[0m[0m
+        tags                                 = {
+            "ManagedBy" = "Terraform"
+            "Name"      = "AUY1105-proyecto2-ec2"
+            "Project"   = "AUY1105-proyecto2"
+        }
+      [33m~[0m[0m tenancy                              = "default" -> (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [33m~[0m[0m vpc_security_group_ids               = [
+          [31m-[0m[0m "sg-0e3cc01aad47224cd",
+        ] -> (known after apply)
+        [90m# (7 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m capacity_reservation_specification (known after apply)
+      [31m-[0m[0m capacity_reservation_specification {
+          [31m-[0m[0m capacity_reservation_preference = "open" [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m cpu_options (known after apply)
+      [31m-[0m[0m cpu_options {
+          [31m-[0m[0m core_count            = 1 [90m-> null[0m[0m
+          [31m-[0m[0m threads_per_core      = 1 [90m-> null[0m[0m
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        }
+
+      [31m-[0m[0m credit_specification {
+          [31m-[0m[0m cpu_credits = "standard" [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m ebs_block_device (known after apply)
+
+      [33m~[0m[0m enclave_options (known after apply)
+      [31m-[0m[0m enclave_options {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m ephemeral_block_device (known after apply)
+
+      [33m~[0m[0m instance_market_options (known after apply)
+
+      [33m~[0m[0m maintenance_options (known after apply)
+      [31m-[0m[0m maintenance_options {
+          [31m-[0m[0m auto_recovery = "default" [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m metadata_options (known after apply)
+      [31m-[0m[0m metadata_options {
+          [31m-[0m[0m http_endpoint               = "enabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_protocol_ipv6          = "disabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_put_response_hop_limit = 2 [90m-> null[0m[0m
+          [31m-[0m[0m http_tokens                 = "required" [90m-> null[0m[0m
+          [31m-[0m[0m instance_metadata_tags      = "disabled" [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m network_interface (known after apply)
+
+      [33m~[0m[0m primary_network_interface (known after apply)
+      [31m-[0m[0m primary_network_interface {
+          [31m-[0m[0m delete_on_termination = true [90m-> null[0m[0m
+          [31m-[0m[0m network_interface_id  = "eni-0cf221ee3acc3ca38" [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m private_dns_name_options (known after apply)
+      [31m-[0m[0m private_dns_name_options {
+          [31m-[0m[0m enable_resource_name_dns_a_record    = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_resource_name_dns_aaaa_record = false [90m-> null[0m[0m
+          [31m-[0m[0m hostname_type                        = "ip-name" [90m-> null[0m[0m
+        }
+
+      [33m~[0m[0m root_block_device {
+          [33m~[0m[0m device_name           = "/dev/sda1" -> (known after apply)
+          [33m~[0m[0m iops                  = 3000 -> (known after apply)
+          [33m~[0m[0m kms_key_id            = "arn:aws:kms:us-east-1:995092812762:key/40cbe4f0-5af1-4bf9-ad47-614c39fc4b12" -> (known after apply)
+          [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+          [33m~[0m[0m tags_all              = {} -> (known after apply)
+          [33m~[0m[0m throughput            = 125 -> (known after apply)
+          [33m~[0m[0m volume_id             = "vol-07891a3a17815d286" -> (known after apply)
+            [90m# (4 unchanged attributes hidden)[0m[0m
+        }
+
+      [33m~[0m[0m secondary_network_interface (known after apply)
+    }
+
+[1m  # module.red.aws_internet_gateway.this[0m will be updated in-place
+[0m  [33m~[0m[0m resource "aws_internet_gateway" "this" {
+        id       = "igw-05cb1ab0d9dd0ae0e"
+        tags     = {
+            "ManagedBy" = "Terraform"
+            "Name"      = "AUY1105-proyecto2-igw"
+            "Project"   = "AUY1105-proyecto2"
+        }
+      [33m~[0m[0m vpc_id   = "vpc-0b53ef58fdc3f2def" -> (known after apply)
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.red.aws_route_table.public[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "aws_route_table" "public" {
+      [33m~[0m[0m arn              = "arn:aws:ec2:us-east-1:995092812762:route-table/rtb-0ed29bdc989e0811f" -> (known after apply)
+      [33m~[0m[0m id               = "rtb-0ed29bdc989e0811f" -> (known after apply)
+      [33m~[0m[0m owner_id         = "995092812762" -> (known after apply)
+      [33m~[0m[0m propagating_vgws = [] -> (known after apply)
+        tags             = {
+            "ManagedBy" = "Terraform"
+            "Name"      = "AUY1105-proyecto2-rt-pub"
+            "Project"   = "AUY1105-proyecto2"
+        }
+      [33m~[0m[0m vpc_id           = "vpc-0b53ef58fdc3f2def" -> (known after apply) [31m# forces replacement[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.red.aws_route_table_association.public[0][0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "aws_route_table_association" "public" {
+      [33m~[0m[0m id             = "rtbassoc-01e7b0ef1e95b10ac" -> (known after apply)
+      [33m~[0m[0m route_table_id = "rtb-0ed29bdc989e0811f" -> (known after apply)
+      [33m~[0m[0m subnet_id      = "subnet-0edc249a27cea595c" -> (known after apply) [31m# forces replacement[0m[0m
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.red.aws_security_group.this[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "aws_security_group" "this" {
+      [33m~[0m[0m arn                    = "arn:aws:ec2:us-east-1:995092812762:security-group/sg-0e3cc01aad47224cd" -> (known after apply)
+      [33m~[0m[0m id                     = "sg-0e3cc01aad47224cd" -> (known after apply)
+        name                   = "AUY1105-proyecto2-sg"
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [33m~[0m[0m owner_id               = "995092812762" -> (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+        tags                   = {
+            "ManagedBy" = "Terraform"
+            "Name"      = "AUY1105-proyecto2-sg"
+            "Project"   = "AUY1105-proyecto2"
+        }
+      [33m~[0m[0m vpc_id                 = "vpc-0b53ef58fdc3f2def" -> (known after apply) [31m# forces replacement[0m[0m
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.red.aws_subnet.public[0][0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "aws_subnet" "public" {
+      [33m~[0m[0m arn                                            = "arn:aws:ec2:us-east-1:995092812762:subnet/subnet-0edc249a27cea595c" -> (known after apply)
+      [33m~[0m[0m availability_zone_id                           = "use1-az2" -> (known after apply)
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [33m~[0m[0m id                                             = "subnet-0edc249a27cea595c" -> (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                                = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [33m~[0m[0m owner_id                                       = "995092812762" -> (known after apply)
+      [33m~[0m[0m private_dns_hostname_type_on_launch            = "ip-name" -> (known after apply)
+        tags                                           = {
+            "ManagedBy" = "Terraform"
+            "Name"      = "AUY1105-proyecto2-sn-pub-1"
+            "Project"   = "AUY1105-proyecto2"
+        }
+      [33m~[0m[0m vpc_id                                         = "vpc-0b53ef58fdc3f2def" -> (known after apply) [31m# forces replacement[0m[0m
+        [90m# (12 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.red.aws_vpc.this[0m will be created
+[0m  [32m+[0m[0m resource "aws_vpc" "this" {
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m cidr_block                           = "10.1.0.0/16"
+      [32m+[0m[0m default_network_acl_id               = (known after apply)
+      [32m+[0m[0m default_route_table_id               = (known after apply)
+      [32m+[0m[0m default_security_group_id            = (known after apply)
+      [32m+[0m[0m dhcp_options_id                      = (known after apply)
+      [32m+[0m[0m enable_dns_hostnames                 = true
+      [32m+[0m[0m enable_dns_support                   = true
+      [32m+[0m[0m enable_network_address_usage_metrics = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_tenancy                     = "default"
+      [32m+[0m[0m ipv6_association_id                  = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                      = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_network_border_group = (known after apply)
+      [32m+[0m[0m main_route_table_id                  = (known after apply)
+      [32m+[0m[0m owner_id                             = (known after apply)
+      [32m+[0m[0m region                               = "us-east-1"
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "ManagedBy" = "Terraform"
+          [32m+[0m[0m "Name"      = "AUY1105-proyecto2-vpc"
+          [32m+[0m[0m "Project"   = "AUY1105-proyecto2"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "ManagedBy" = "Terraform"
+          [32m+[0m[0m "Name"      = "AUY1105-proyecto2-vpc"
+          [32m+[0m[0m "Project"   = "AUY1105-proyecto2"
+        }
+    }
+
+[1mPlan:[0m [0m9 to add, 1 to change, 5 to destroy.
+
+Changes to Outputs:
+  [33m~[0m[0m instance_id       = "i-064912242c88a92c2" -> (known after apply)
+  [33m~[0m[0m instance_ip       = "100.59.33.153" -> (known after apply)
+  [33m~[0m[0m security_group_id = "sg-0e3cc01aad47224cd" -> (known after apply)
+  [33m~[0m[0m subnet_ids        = [
+      [33m~[0m[0m "subnet-0edc249a27cea595c" -> (known after apply),
+    ]
+  [32m+[0m[0m vpc_id            = (known after apply)
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

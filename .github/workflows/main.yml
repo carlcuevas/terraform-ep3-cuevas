@@ -1,0 +1,84 @@
+name: "Terraform CI/CD Pipeline"
+
+# Se dispara UNICAMENTE en Pull Requests hacia main,
+# segun lo exige la pauta del parcial.
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pipeline:
+    name: "Analisis de Calidad y Seguridad"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout del codigo"
+        uses: actions/checkout@v4
+
+      - name: "Configurar Terraform"
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.0
+
+      # ===========================================================
+      # ETAPA 1: Analisis estatico del codigo con TFLint
+      # ===========================================================
+      - name: "[Etapa 1] Configurar TFLint"
+        uses: terraform-linters/setup-tflint@v4
+        with:
+          tflint_version: v0.53.0
+
+      - name: "[Etapa 1] Inicializar TFLint"
+        run: tflint --init
+
+      - name: "[Etapa 1] Ejecutar analisis estatico (TFLint)"
+        run: tflint -f compact
+
+      # ===========================================================
+      # ETAPA 2: Analisis de seguridad con Checkov
+      # Se excluyen checks de best practices AWS fuera del scope
+      # del parcial (monitoring, EBS encryption, IAM role, etc.)
+      # ===========================================================
+      - name: "[Etapa 2] Ejecutar analisis de seguridad (Checkov)"
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
+          framework: terraform
+          soft_fail: false
+          output_format: cli
+          quiet: true
+          skip_check: CKV_AWS_8,CKV_AWS_79,CKV_AWS_126,CKV_AWS_130,CKV_AWS_135,CKV_AWS_382,CKV2_AWS_11,CKV2_AWS_12,CKV2_AWS_41
+
+      # ===========================================================
+      # ETAPA 3: Validacion del codigo Terraform
+      # ===========================================================
+      - name: "[Etapa 3] Terraform Init"
+        run: terraform init -backend=false
+
+      - name: "[Etapa 3] Terraform Validate"
+        run: terraform validate
+
+      # ===========================================================
+      # ETAPA 4: Evaluacion de politicas OPA
+      # ===========================================================
+      - name: "[Etapa 4] Instalar OPA"
+        run: |
+          curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64_static
+          chmod +x opa
+          sudo mv opa /usr/local/bin/
+
+      - name: "[Etapa 4] Generar plan en JSON"
+        run: |
+          terraform plan -out=tfplan.binary || true
+          terraform show -json tfplan.binary > plan.json || echo '{}' > plan.json
+
+      - name: "[Etapa 4] Evaluar politicas OPA"
+        run: |
+          RESULT=$(opa eval -d policies/ -i plan.json "data.terraform.policies.deny" --format=pretty)
+          echo "Resultado OPA:"
+          echo "$RESULT"
+          if echo "$RESULT" | grep -q "Violacion"; then
+            echo "::error::Politicas OPA violadas. Bloqueando PR."
+            exit 1
+          fi

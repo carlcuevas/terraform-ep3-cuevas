@@ -1,0 +1,19 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.0",
+  "resource_changes": [
+    {
+      "address": "aws_instance.server",
+      "type": "aws_instance",
+      "name": "server",
+      "change": {
+        "actions": ["create"],
+        "after": {
+          "ami": "ami-0abcdef1234567890",
+          "instance_type": "t3.medium",
+          "tags": { "Name": "AUY1105-proyecto1-ec2" }
+        }
+      }
+    }
+  ]
+}

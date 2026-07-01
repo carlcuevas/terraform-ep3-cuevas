@@ -1,0 +1,40 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.0",
+  "resource_changes": [
+    {
+      "address": "aws_security_group.allow_ssh",
+      "type": "aws_security_group",
+      "name": "allow_ssh",
+      "change": {
+        "actions": ["create"],
+        "after": {
+          "name": "AUY1105-proyecto1-sg",
+          "ingress": [
+            {
+              "description": "SSH desde la VPC",
+              "from_port": 22,
+              "to_port": 22,
+              "protocol": "tcp",
+              "cidr_blocks": ["10.1.0.0/16"]
+            }
+          ],
+          "tags": { "Name": "AUY1105-proyecto1-sg" }
+        }
+      }
+    },
+    {
+      "address": "aws_instance.server",
+      "type": "aws_instance",
+      "name": "server",
+      "change": {
+        "actions": ["create"],
+        "after": {
+          "ami": "ami-0abcdef1234567890",
+          "instance_type": "t2.micro",
+          "tags": { "Name": "AUY1105-proyecto1-ec2" }
+        }
+      }
+    }
+  ]
+}

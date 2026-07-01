@@ -1,0 +1,27 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.0",
+  "resource_changes": [
+    {
+      "address": "aws_security_group.allow_ssh",
+      "type": "aws_security_group",
+      "name": "allow_ssh",
+      "change": {
+        "actions": ["create"],
+        "after": {
+          "name": "AUY1105-proyecto1-sg",
+          "ingress": [
+            {
+              "description": "SSH abierto (violacion intencional para test)",
+              "from_port": 22,
+              "to_port": 22,
+              "protocol": "tcp",
+              "cidr_blocks": ["0.0.0.0/0"]
+            }
+          ],
+          "tags": { "Name": "AUY1105-proyecto1-sg" }
+        }
+      }
+    }
+  ]
+}

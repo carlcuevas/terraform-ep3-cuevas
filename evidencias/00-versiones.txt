@@ -1,0 +1,21 @@
+=== Terraform ===
+Terraform v1.14.8
+on linux_amd64
++ provider registry.terraform.io/hashicorp/aws v6.41.0
+
+=== TFLint ===
+TFLint version 0.61.0
++ ruleset.terraform (0.14.1-bundled)
+
+=== Checkov ===
+3.2.521
+
+=== OPA ===
+Version: 1.15.2
+Build Commit: 37b80cb7b620c82049fb5775fe83b841ff3677ba-dirty
+Build Timestamp: 2026-04-08T13:05:16Z
+Build Hostname: 
+Go Version: go1.26.2
+Platform: linux/amd64
+Rego Version: v1
+WebAssembly: unavailable

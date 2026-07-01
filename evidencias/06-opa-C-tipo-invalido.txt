@@ -1,0 +1,4 @@
+=== opa eval contra tipo no permitido ===
+[
+  "Violacion de Politica: la instancia 'aws_instance.server' usa tipo 't3.medium'. Solo se permite t2.micro"
+]

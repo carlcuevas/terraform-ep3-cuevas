@@ -1,0 +1,5 @@
+{
+    "UserId": "AROA6PMBHKPNIWKLJRNWJ:user3264995=carl.cuevasn@duocuc.cl",
+    "Account": "995092812762",
+    "Arn": "arn:aws:sts::995092812762:assumed-role/voclabs/user3264995=carl.cuevasn@duocuc.cl"
+}

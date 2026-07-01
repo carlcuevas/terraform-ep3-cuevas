@@ -1,0 +1,38 @@
+# Terraform - directorio de trabajo
+.terraform/
+.terraform.tfstate.lock.info
+
+# Terraform - estado (nunca commitear, contiene datos sensibles)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+crash.*.log
+
+# Terraform - variables con valores sensibles
+*.tfvars
+*.tfvars.json
+!example.tfvars
+
+# El archivo .terraform.lock.hcl SI se debe commitear
+# para garantizar versiones reproducibles entre integrantes.
+# (No se excluye aquí a propósito)
+
+# Secrets y llaves
+*.pem
+*.key
+*.ppk
+credentials
+.aws/
+
+# Artefactos del plan
+tfplan
+tfplan.binary
+plan.json
+
+# Sistema operativo / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

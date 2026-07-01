@@ -1,0 +1,8 @@
+module.almacenamiento.aws_s3_bucket.this
+module.computo.data.aws_ami.this
+module.computo.aws_instance.this
+module.red.aws_internet_gateway.this
+module.red.aws_route_table.public
+module.red.aws_route_table_association.public[0]
+module.red.aws_security_group.this
+module.red.aws_subnet.public[0]
