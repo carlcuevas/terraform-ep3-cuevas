@@ -10,7 +10,7 @@
 
 ---
 
-# 📖 Descripción
+# Descripción
 
 Este repositorio contiene la infraestructura desarrollada para la **Evaluación Parcial N°3** de la asignatura **Infraestructura como Código II**.
 
