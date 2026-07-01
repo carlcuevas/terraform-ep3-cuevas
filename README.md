@@ -52,7 +52,7 @@ compuesta por tres módulos principales.
              module.computo
                      │
                      └── EC2 t2.micro
-``
+``` 
 Recursos Implementados
  Red (module.red)
 Amazon VPC
@@ -126,7 +126,7 @@ Incluyen logs de los tres escenarios y de la recuperación del estado.
 
  Comandos Utilizados
 
- ``
+ ``` text
 terraform init
 terraform plan
 terraform apply
@@ -139,7 +139,7 @@ terraform taint
 terraform untaint
 terraform apply -refresh-only
 terraform apply -replace
-``
+````
 
 ✅ Resultado
 La infraestructura fue administrada correctamente utilizando Terraform
