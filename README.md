@@ -29,7 +29,7 @@ de recursos.
 La infraestructura fue desarrollada utilizando una arquitectura modular
 compuesta por tres módulos principales.
 
-``
+``` text
                      AWS CLOUD
                          │
         ┌────────────────┴────────────────┐
